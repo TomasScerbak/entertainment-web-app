@@ -8,6 +8,8 @@ import TvSeries from "./components/pages/TvSeries";
 import SignUpPage from "./components/pages/SignUpPage";
 import LoginPage from "./components/pages/LoginPage";
 
+import { AuthProvider } from "./store/AuthContext";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,7 +26,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
 
 export default App;
