@@ -5,6 +5,8 @@
   height: 5.6rem;
   background-color: var(--very-dark-blue);
   padding: 2rem 1.6rem;
+  margin: 2.3rem 2.4rem;
+  border-radius: 1rem;
 }
 
 .nav-links {

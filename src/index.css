@@ -16,6 +16,8 @@ body {
   font-family: var(--ff-outfit);
   height: 100vh;
   font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--color-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -58,6 +60,7 @@ h4 {
 li,
 ul {
   text-decoration: none;
+  list-style-type: none;
 }
 
 a {

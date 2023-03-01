@@ -23,27 +23,43 @@ const Navigation = () => {
         <ul className={classes["nav-links"]}>
           <li>
             <Link to="/">
-              <img className={classes["navlink-img"]} src={HomePageIcon} />
+              <img
+                alt="homepage"
+                className={classes["navlink-img"]}
+                src={HomePageIcon}
+              />
             </Link>
           </li>
           <li>
             <Link to="/movies">
-              <img className={classes["navlink-img"]} src={MoviesIcon} />
+              <img
+                alt="movies"
+                className={classes["navlink-img"]}
+                src={MoviesIcon}
+              />
             </Link>
           </li>
           <li>
             <Link to="/tvseries">
-              <img className={classes["navlink-img"]} src={TvSeriesIcon} />
+              <img
+                alt="tv series"
+                className={classes["navlink-img"]}
+                src={TvSeriesIcon}
+              />
             </Link>
           </li>
           <li>
             <Link to="/bookmarks">
-              <img className={classes["navlink-img"]} src={BookmarksIcon} />
+              <img
+                alt="bookmarks"
+                className={classes["navlink-img"]}
+                src={BookmarksIcon}
+              />
             </Link>
           </li>
         </ul>
         <div className={classes.user}>
-          <img className={classes.avatar} src={Avatar} />
+          <img alt="user avatar" className={classes.avatar} src={Avatar} />
           <button onClick={() => app.auth().signOut()}>Sign Out</button>
         </div>
       </nav>
