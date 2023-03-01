@@ -1,0 +1,13 @@
+.trending-container {
+  display: grid;
+  gap: 1.6rem;
+  margin-left: 1.6rem;
+}
+
+.trending-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.3125px;
+  margin-left: 1.6rem;
+}

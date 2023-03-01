@@ -1,6 +1,6 @@
 import classes from "./SearchBar.module.css";
 
-import SearchIcon from "../assets/icon-search.svg";
+import SearchIcon from "../../assets/icon-search.svg";
 
 const SearchBar = () => {
   return (
