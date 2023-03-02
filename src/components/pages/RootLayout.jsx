@@ -4,13 +4,13 @@ import SearchBar from "../UI/SearchBar";
 
 const RootLayout = () => {
   return (
-    <div>
+    <>
       <Navigation />
       <main>
         <SearchBar />
         <Outlet />
       </main>
-    </div>
+    </>
   );
 };
 

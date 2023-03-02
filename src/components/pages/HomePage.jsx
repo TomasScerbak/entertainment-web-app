@@ -5,7 +5,7 @@ import MovieData from "../../data.json";
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <TrendingSection>
         {MovieData.filter((movies) => movies.isTrending).map((movie) => (
           <TrendingCard
@@ -17,7 +17,7 @@ const HomePage = () => {
           />
         ))}
       </TrendingSection>
-    </div>
+    </>
   );
 };
 
