@@ -7,8 +7,9 @@ const HomePage = () => {
   return (
     <div>
       <TrendingSection>
-        {MovieData.map((movie) => (
+        {MovieData.filter((movies) => movies.isTrending).map((movie) => (
           <TrendingCard
+            key={movie.title}
             title={movie.title}
             year={movie.year}
             category={movie.category}

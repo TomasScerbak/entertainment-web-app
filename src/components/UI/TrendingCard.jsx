@@ -1,4 +1,3 @@
-import IconPlay from "../../assets/icon-play.svg";
 import MovieImage from "../../assets/thumbnails/112/regular/small.jpg";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 
