@@ -1,31 +1,24 @@
-import MovieImage from "../../assets/thumbnails/112/regular/small.jpg";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
-import CategoryTvImg from "../../assets/icon-category-tv.svg";
 
 import classes from "./TrendingCard.module.css";
 
-const TrendingCard = ({ title, year, category, rating }) => {
+const TrendingCard = ({ title, image }) => {
   return (
     <div className={classes["trending-card"]}>
-      <img src={MovieImage} className={classes["trending-image"]} />
+      <img src={image} className={classes["trending-image"]} />
       <div className={classes["bookmark-icon-wrapper"]}>
         <img src={BookmarkIconEmpty} alt="bookmark icon" />
       </div>
       <div className={classes["description"]}>
         <div className={classes["movie-info"]}>
-          <span>{year}</span>
+          <span></span>
           <span>&#x2022;</span>
           <span>
-            <img
-              className={classes.category}
-              src={category === "Movie" ? CategoryMovieImg : CategoryTvImg}
-              alt="#"
-            />
-            {category}
+            <img className={classes.category} src={CategoryMovieImg} alt="#" />
           </span>
           <span>&#x2022;</span>
-          <span>{rating}</span>
+          <span></span>
         </div>
         <h2 className={classes["movie-title"]}>{title}</h2>
       </div>

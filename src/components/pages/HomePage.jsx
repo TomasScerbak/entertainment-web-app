@@ -1,19 +1,29 @@
+import { useEffect, useState } from "react";
+
 import TrendingSection from "../TrendingSection";
 import TrendingCard from "../UI/TrendingCard";
 
-import MovieData from "../../data.json";
+import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
 
 const HomePage = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    FetchTrendingMoviesAPI().then((data) => {
+      const movieData = data.results;
+      console.log(movieData);
+      setMovies(movieData);
+    });
+  }, []);
+
   return (
     <>
       <TrendingSection>
-        {MovieData.filter((movies) => movies.isTrending).map((movie) => (
+        {movies.map((movie) => (
           <TrendingCard
-            key={movie.title}
-            title={movie.title}
-            year={movie.year}
-            category={movie.category}
-            rating={movie.rating}
+            key={movie.id}
+            title={movie.title || movie.name}
+            image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           />
         ))}
       </TrendingSection>
