@@ -38,6 +38,7 @@
   background: #10141e;
   mix-blend-mode: normal;
   opacity: 0.8;
+  z-index: 1;
 }
 
 .description {
