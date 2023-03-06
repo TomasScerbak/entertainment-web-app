@@ -1,11 +1,12 @@
 import { useState } from "react";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
+import CategoryTVImg from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./TrendingCard.module.css";
 
-const TrendingCard = ({ title, image }) => {
+const TrendingCard = ({ title, image, category }) => {
   const [hovered, setHovered] = useState(false);
 
   const toggleHoverHandler = () => {
@@ -38,7 +39,11 @@ const TrendingCard = ({ title, image }) => {
           <span></span>
           <span>&#x2022;</span>
           <span>
-            <img className={classes.category} src={CategoryMovieImg} alt="#" />
+            <img
+              className={classes.category}
+              src={category === "movie" ? CategoryMovieImg : CategoryTVImg}
+              alt="#"
+            />
           </span>
           <span>&#x2022;</span>
           <span></span>
