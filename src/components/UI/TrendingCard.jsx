@@ -19,7 +19,10 @@ const TrendingCard = ({ title, image }) => {
     >
       {hovered && (
         <div className={hovered ? `${classes.overlay}` : ""}>
-          <img src={PlayIcon} alt="#" />
+          <div className={classes["icon-wrapper"]}>
+            <img src={PlayIcon} alt="#" />
+            <p className={classes.play}>Play</p>
+          </div>
         </div>
       )}
       <img

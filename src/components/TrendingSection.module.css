@@ -1,3 +1,7 @@
+.trending-wrapper {
+  margin-top: 2.4rem;
+}
+
 .trending-container {
   display: grid;
   gap: 1.6rem;
