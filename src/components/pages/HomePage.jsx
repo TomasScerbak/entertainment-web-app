@@ -26,6 +26,7 @@ const HomePage = () => {
             image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             category={movie.media_type}
             year={parseInt(movie?.release_date) || ""}
+            rating={movie.vote_average.toFixed(1)}
           />
         ))}
       </TrendingSection>
