@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
 import CategoryTVImg from "../../assets/icon-category-tv.svg";
@@ -7,10 +8,10 @@ import PlayIcon from "../../assets/icon-play.svg";
 import classes from "./TrendingCard.module.css";
 
 const TrendingCard = ({ title, image, category, year, rating }) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
-    setHovered(!hovered);
+    setIsHovered(!hovered);
   };
   return (
     <div

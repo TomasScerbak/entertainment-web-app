@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+
+import store from "./store";
 
 import Bookmarks from "./components/pages/Bookmarks";
 import HomePage from "./components/pages/HomePage";
@@ -7,8 +10,6 @@ import RootLayout from "./components/pages/RootLayout";
 import TvSeries from "./components/pages/TvSeries";
 import SignUpPage from "./components/pages/SignUpPage";
 import LoginPage from "./components/pages/LoginPage";
-
-import { AuthProvider } from "./store/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -27,9 +28,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </AuthProvider>
+    </Provider>
   );
 }
 

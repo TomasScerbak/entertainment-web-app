@@ -6,7 +6,7 @@ const SearchBar = () => {
   return (
     <div className={classes["search-wrapper"]}>
       <label htmlFor="search">
-        <img src={SearchIcon} />
+        <img src={SearchIcon} alt="search" />
       </label>
       <input
         id="search"
