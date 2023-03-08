@@ -4,6 +4,7 @@ import TrendingSection from "../TrendingSection";
 import TrendingCard from "../UI/TrendingCard";
 
 import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
+import SearchBar from "../UI/SearchBar";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -18,6 +19,7 @@ const HomePage = () => {
 
   return (
     <>
+      <SearchBar placeholder="Search for movies or TV series" />
       <TrendingSection>
         {movies.map((movie) => (
           <TrendingCard

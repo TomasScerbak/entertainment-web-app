@@ -2,7 +2,7 @@ import classes from "./SearchBar.module.css";
 
 import SearchIcon from "../../assets/icon-search.svg";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   return (
     <div className={classes["search-wrapper"]}>
       <label htmlFor="search">
@@ -12,7 +12,7 @@ const SearchBar = () => {
         id="search"
         className={classes.search}
         type="text"
-        placeholder="Search for movies or TV series"
+        placeholder={props.placeholder}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
+import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
-import app from "../base";
+import { useSelector } from "react-redux";
 
 import classes from "./Navigation.module.css";
 
@@ -12,6 +13,14 @@ import TvSeriesIcon from "../assets/icon-nav-tv-series.svg";
 import BookmarksIcon from "../assets/icon-nav-bookmark.svg";
 
 const Navigation = () => {
+  const user = useSelector((state) => state.auth.uid);
+
+  const auth = getAuth();
+
+  const handleLogOut = () => {
+    auth.signOut(auth).then(() => console.log("User Logged out"));
+  };
+
   return (
     <header>
       <nav className={classes.navigation}>
@@ -58,10 +67,14 @@ const Navigation = () => {
             </Link>
           </li>
         </ul>
-        <div className={classes.user}>
-          <img alt="user avatar" className={classes.avatar} src={Avatar} />
-          <button onClick={() => app.auth().signOut()}>Sign Out</button>
-        </div>
+        {user && (
+          <div className={classes.user}>
+            <img alt="user avatar" className={classes.avatar} src={Avatar} />
+            <Link onClick={handleLogOut} to="/">
+              Log Out
+            </Link>
+          </div>
+        )}
       </nav>
     </header>
   );

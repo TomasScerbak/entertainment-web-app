@@ -1,7 +1,10 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { saveUser } from "./store/authSlice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Provider } from "react-redux";
 
-import store from "./store";
+import app from "./base";
 
 import Bookmarks from "./components/pages/Bookmarks";
 import HomePage from "./components/pages/HomePage";
@@ -27,11 +30,21 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  );
+  const user = useSelector((state) => state.auth.uid);
+  const dispatch = useDispatch();
+
+  const auth = getAuth(app);
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(saveUser(user.refreshToken));
+      } else {
+        dispatch(saveUser(undefined));
+      }
+    });
+  }, [auth, dispatch]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
