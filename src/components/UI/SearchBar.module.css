@@ -16,3 +16,10 @@
   margin-left: 1.6rem;
   caret-color: var(--color-red);
 }
+
+@media screen and (min-width: 769px) {
+  .search-wrapper {
+    padding-top: 6.4rem;
+    margin-left: 16.4rem;
+  }
+}
