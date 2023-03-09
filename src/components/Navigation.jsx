@@ -7,6 +7,8 @@ import classes from "./Navigation.module.css";
 
 import Logo from "../assets/logo.svg";
 import Avatar from "../assets/image-avatar.png";
+import Login from "../assets/login-image.png";
+
 import HomePageIcon from "../assets/icon-nav-home.svg";
 import MoviesIcon from "../assets/icon-nav-movies.svg";
 import TvSeriesIcon from "../assets/icon-nav-tv-series.svg";
@@ -74,6 +76,11 @@ const Navigation = () => {
               Log Out
             </Link>
           </div>
+        )}
+        {!user && (
+          <Link to="/login">
+            <img className={classes.login} src={Login} alt="login" />
+          </Link>
         )}
       </nav>
     </header>
