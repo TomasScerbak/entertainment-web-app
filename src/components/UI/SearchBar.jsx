@@ -6,7 +6,7 @@ const SearchBar = (props) => {
   return (
     <div className={classes["search-wrapper"]}>
       <label htmlFor="search">
-        <img src={SearchIcon} alt="search" />
+        <img className={classes["search-icon"]} src={SearchIcon} alt="search" />
       </label>
       <input
         id="search"
