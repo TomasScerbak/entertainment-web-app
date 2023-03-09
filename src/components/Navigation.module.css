@@ -8,6 +8,11 @@
   border-radius: 1rem;
 }
 
+.logo {
+  width: 2.5rem;
+  height: 2rem;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -48,6 +53,21 @@ a:hover .navlink-img {
   .navigation {
     margin: 2.3rem 2.4rem;
   }
+
+  .navlink-img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logo {
+    width: 3.2rem;
+    height: 2.56rem;
+  }
+
+  .login {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -62,6 +82,21 @@ a:hover .navlink-img {
   .nav-links {
     flex-direction: column;
     margin-bottom: 50rem;
-    margin-right: 3.5rem;
+    margin-right: 3.7rem;
+  }
+
+  .navlink-img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logo {
+    width: 3.2rem;
+    height: 2.56rem;
+  }
+
+  .login {
+    width: 4rem;
+    height: 4rem;
   }
 }

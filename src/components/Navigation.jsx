@@ -28,7 +28,7 @@ const Navigation = () => {
       <nav className={classes.navigation}>
         <div>
           <Link to="/">
-            <img src={Logo} alt="logo" />
+            <img className={classes.logo} src={Logo} alt="logo" />
           </Link>
         </div>
         <ul className={classes["nav-links"]}>

@@ -16,3 +16,10 @@
   letter-spacing: -0.3125px;
   margin-left: 1.6rem;
 }
+
+@media screen and (min-width: 769px) {
+  .trending-wrapper {
+    margin-left: 16.4rem;
+    margin-top: 2.4rem;
+  }
+}
