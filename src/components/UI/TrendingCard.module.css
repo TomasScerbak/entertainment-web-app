@@ -7,6 +7,13 @@
   cursor: pointer;
 }
 
+.trending-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.3125px;
+  line-height: 2.5rem;
+}
+
 .overlay {
   width: 24rem;
   height: 14rem;
@@ -82,4 +89,21 @@
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.9rem;
+}
+
+@media screen and (min-width: 768px) {
+  .trending-card {
+    width: 47rem;
+    height: 23rem;
+  }
+
+  .trending-heading {
+    font-size: 3.2rem;
+    line-height: 4rem;
+  }
+
+  .overlay {
+    width: 47rem;
+    height: 23rem;
+  }
 }
