@@ -43,3 +43,25 @@ a:hover .navlink-img {
   height: 3rem;
   border-radius: 100%;
 }
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .navigation {
+    margin: 2.3rem 2.4rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .navigation {
+    position: absolute;
+    flex-direction: column;
+    width: 9.6rem;
+    height: 96rem;
+    margin: 3.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    margin-bottom: 50rem;
+    margin-right: 3.5rem;
+  }
+}
