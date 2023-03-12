@@ -1,11 +1,15 @@
-import { useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "../Navigation";
 
 const RootLayout = () => {
+  const location = useLocation();
+
   return (
     <>
-      <Navigation />
+      {location.pathname === "/login" ||
+      location.pathname === "/signup" ? null : (
+        <Navigation />
+      )}
       <main>
         <Outlet />
       </main>
