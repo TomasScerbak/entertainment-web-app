@@ -18,9 +18,35 @@
   margin-left: 1.6rem;
 }
 
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .recommended-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media screen and (min-width: 769px) {
   .recommended-wrapper {
     margin-left: 16.4rem;
     margin-top: 2.4rem;
+  }
+
+  .recommended-heading {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .recommended-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .recommended-wrapper {
+    max-width: 1440px;
+  }
+
+  .recommended-container {
+    grid-template-columns: repeat(7, 1fr);
   }
 }

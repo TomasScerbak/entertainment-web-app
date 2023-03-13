@@ -96,10 +96,34 @@
   line-height: 1.9rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {
   .movie-card {
-    width: 47rem;
-    height: 23rem;
+    width: 22rem;
+    height: 14rem;
+  }
+
+  .overlay {
+    width: 22rem;
+    height: 14rem;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .movie-card {
+    width: 27rem;
+    height: 16rem;
+  }
+
+  .overlay {
+    width: 27rem;
+    height: 16rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movie-card {
+    width: 28rem;
+    height: 17.4rem;
   }
 
   .movie-heading {
@@ -108,7 +132,19 @@
   }
 
   .overlay {
-    width: 47rem;
-    height: 23rem;
+    width: 28rem;
+    height: 17.4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .movie-card {
+    width: 32rem;
+    height: 19.4rem;
+  }
+
+  .overlay {
+    width: 32rem;
+    height: 19.4rem;
   }
 }

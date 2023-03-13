@@ -20,6 +20,20 @@
 @media screen and (min-width: 769px) {
   .trending-wrapper {
     margin-left: 16.4rem;
-    margin-top: 2.4rem;
+    margin-top: 3.9rem;
+  }
+
+  .trending-heading {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .trending-wrapper {
+    margin-top: 4rem;
+  }
+
+  .trending-heading {
+    font-size: 3.2rem;
   }
 }

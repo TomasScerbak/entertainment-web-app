@@ -15,7 +15,6 @@ const HomePage = () => {
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
       const movieData = data.results;
-      console.log(movieData);
       setMovies(movieData);
     });
   }, []);
@@ -38,7 +37,7 @@ const HomePage = () => {
       </TrendingSection>
       <RecommendedSection>
         {movies.map((movie) =>
-          movie.vote_average > "7.5" ? (
+          movie.vote_average > "5" ? (
             <MovieCard
               key={movie.id}
               title={movie.title || movie.name}
