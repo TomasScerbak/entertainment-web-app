@@ -15,6 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
       const movieData = data.results;
+      console.log(movieData);
       setMovies(movieData);
     });
   }, []);
@@ -31,6 +32,7 @@ const HomePage = () => {
             category={movie.media_type}
             year={parseInt(movie?.release_date) || ""}
             rating={movie.vote_average.toFixed(1)}
+            type={movie.media_type}
           />
         ))}
       </TrendingSection>
@@ -44,6 +46,7 @@ const HomePage = () => {
               category={movie.media_type}
               year={parseInt(movie?.release_date) || ""}
               rating={movie.vote_average.toFixed(1)}
+              type={movie.media_type}
             />
           ) : null
         )}

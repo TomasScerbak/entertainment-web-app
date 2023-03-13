@@ -7,7 +7,7 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./MovieCard.module.css";
 
-const MovieCard = ({ title, image, category, year, rating }) => {
+const MovieCard = ({ title, image, category, year, rating, type }) => {
   const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
@@ -47,6 +47,7 @@ const MovieCard = ({ title, image, category, year, rating }) => {
               src={category === "movie" ? CategoryMovieImg : CategoryTVImg}
               alt="#"
             />
+            <span className={classes["movie-type"]}>{type}</span>
           </span>
           <span>&#x2022;</span>
           <span>{rating}</span>

@@ -7,7 +7,7 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./TrendingCard.module.css";
 
-const TrendingCard = ({ title, image, category, year, rating }) => {
+const TrendingCard = ({ title, image, category, year, rating, type }) => {
   const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
@@ -45,6 +45,7 @@ const TrendingCard = ({ title, image, category, year, rating }) => {
               src={category === "movie" ? CategoryMovieImg : CategoryTVImg}
               alt="#"
             />
+            <span className={classes["movie-type"]}>{type}</span>
           </span>
           <span>&#x2022;</span>
           <span>{rating}</span>

@@ -78,6 +78,10 @@
   margin-right: 0.6rem;
 }
 
+.movie-type {
+  text-transform: uppercase;
+}
+
 .movie-title {
   font-size: 1.5rem;
   font-weight: 500;
