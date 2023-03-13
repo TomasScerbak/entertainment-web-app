@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import TrendingSection from "../TrendingSection";
 import RecommendedSection from "../RecommendedSection";
 import TrendingCard from "../UI/TrendingCard";
-
-import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
-
 import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
+
+import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
