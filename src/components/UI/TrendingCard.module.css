@@ -7,13 +7,6 @@
   cursor: pointer;
 }
 
-.trending-heading {
-  font-size: 2rem;
-  font-weight: 300;
-  letter-spacing: -0.3125px;
-  line-height: 2.5rem;
-}
-
 .overlay {
   width: 24rem;
   height: 14rem;

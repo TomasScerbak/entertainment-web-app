@@ -23,7 +23,7 @@ const MovieCard = ({ title, image, category, year, rating }) => {
         {hovered && (
           <div className={hovered ? `${classes.overlay}` : ""}>
             <div className={classes["icon-wrapper"]}>
-              <img src={PlayIcon} alt="#" />
+              <img className={classes["play-icon"]} src={PlayIcon} alt="#" />
               <p className={classes.play}>Play</p>
             </div>
           </div>
