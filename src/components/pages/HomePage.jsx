@@ -20,7 +20,7 @@ const HomePage = () => {
 
   return (
     <>
-      <SearchBar placeholder="Search for movies or TV series" />
+      <SearchBar movies={movies} placeholder="Search for movies or TV series" />
       <TrendingSection>
         {movies.map((movie) => (
           <TrendingCard

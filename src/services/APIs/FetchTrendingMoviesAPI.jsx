@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const trendingMovies = `https://api.themoviedb.org/3/trending/all/day?api_key=affb7efecd98772b925fd529e5bd3521`;
+const trendingMovies = `https://api.themoviedb.org/3/trending/all/week?api_key=affb7efecd98772b925fd529e5bd3521`;
 
 export const FetchTrendingMoviesAPI = async () => {
   try {
