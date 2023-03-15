@@ -1,0 +1,20 @@
+.card-logo {
+  display: flex;
+  justify-content: center;
+  margin: 4.8rem 17.2rem 5.8rem;
+}
+
+.card-wrapper {
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 0 2.4rem;
+  background-color: var(--very-dark-blue);
+  border-radius: 10px;
+  padding: 2.4rem;
+}

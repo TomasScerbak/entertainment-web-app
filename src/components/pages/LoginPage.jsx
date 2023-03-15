@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../assets/logo.svg";
 
+import classes from "../pages/LoginPage.module.css";
+
 const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -26,23 +28,31 @@ const LoginPage = () => {
 
   return (
     <section>
-      <img src={Logo} alt="logo" />
-      <div>
-        <header>
-          <h1>Login</h1>
-        </header>
-        <form onSubmit={handleLogin}>
-          <input onChange={(e) => setEmail(e.target.value)} type="email" />
-          <input
-            onChange={(e) => setPassword(e.target.value)}
-            type="password"
-          />
-          <button type="submit">Log In</button>
-        </form>
-        <footer>
-          <p>Don't have an account</p>
-          <Link to="/signup">Sign Up</Link>
-        </footer>
+      <Link className={classes["card-logo"]} to="/">
+        <img src={Logo} alt="logo" />
+      </Link>
+      <div className={classes["card-wrapper"]}>
+        <div className={classes.card}>
+          <header>
+            <h1>Login</h1>
+          </header>
+          <form onSubmit={handleLogin}>
+            <input
+              placeholder="Email address"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+            />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            />
+            <button type="submit">Log In</button>
+          </form>
+          <footer>
+            <p>Don't have an account</p>
+            <Link to="/signup">Sign Up</Link>
+          </footer>
+        </div>
       </div>
     </section>
   );
