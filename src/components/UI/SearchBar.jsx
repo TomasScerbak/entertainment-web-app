@@ -17,12 +17,13 @@ const SearchBar = (props) => {
 
   useEffect(() => {
     const interval = setTimeout(() => {
-      const movieTitles = movies.map((movie) => movie.title || movie.name);
-      const result = movieTitles.filter((title) => title.match(searchInput));
+      const result = movies.filter(({ title, name }) =>
+        (title ?? name).match(searchInput)
+      );
       if (!result) {
         return movies;
       } else {
-        console.log(result);
+        return result; /* ulozit do storu */
       }
     }, [1000]);
 
