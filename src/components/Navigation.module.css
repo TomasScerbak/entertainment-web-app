@@ -30,6 +30,10 @@
   transition: all 0.5s;
 }
 
+.active {
+  fill: var(--white);
+}
+
 .user {
   display: flex;
   align-items: center;

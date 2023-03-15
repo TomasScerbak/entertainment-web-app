@@ -1,4 +1,3 @@
-import React from "react";
 import { getAuth } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
