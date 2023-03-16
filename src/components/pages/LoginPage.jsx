@@ -37,15 +37,30 @@ const LoginPage = () => {
             <h1>Login</h1>
           </header>
           <form onSubmit={handleLogin}>
-            <input
-              placeholder="Email address"
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-            />
-            <input
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-            />
+            <div className={classes["form-control"]}>
+              <input
+                placeholder="Email address"
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+              />
+              {email === "" ? (
+                <p className={classes.error}>Can't be empty</p>
+              ) : (
+                ""
+              )}
+            </div>
+            <div className={classes["form-control"]}>
+              <input
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+              />
+              {password === "" ? (
+                <p className={classes.error}>Can't be empty</p>
+              ) : (
+                ""
+              )}
+            </div>
             <button type="submit">Log In</button>
           </form>
           <footer>
