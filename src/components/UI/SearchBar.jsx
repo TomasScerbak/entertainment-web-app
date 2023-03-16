@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import classes from "./SearchBar.module.css";
 
 import SearchIcon from "../../assets/icon-search.svg";
+import { useDispatch } from "react-redux";
+import { saveTrendMovies } from "../../store/trendMoviesSlice";
 
 const SearchBar = (props) => {
+  const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
   const movies = props.movies;
 
@@ -21,14 +24,13 @@ const SearchBar = (props) => {
         (title ?? name).match(searchInput)
       );
       if (!result) {
-        return movies;
+        return;
       } else {
-        return result; /* ulozit do storu */
+        dispatch(saveTrendMovies(result));
       }
-    }, [1000]);
-
-    return () => clearTimeout(interval);
-  }, [searchInput, movies]);
+      return () => clearTimeout(interval);
+    }, [1500]);
+  }, [searchInput, dispatch, movies]);
 
   return (
     <div className={classes["search-wrapper"]}>

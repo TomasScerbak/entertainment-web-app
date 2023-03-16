@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import TrendingSection from "../TrendingSection";
 import RecommendedSection from "../RecommendedSection";
@@ -9,13 +10,13 @@ import MovieCard from "../UI/MovieCard";
 import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
 
 const HomePage = () => {
+  const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
       const movieData = data.results;
       setMovies(movieData);
-      console.log(movies);
     });
   }, []);
 
