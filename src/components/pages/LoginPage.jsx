@@ -3,9 +3,12 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Button from "../UI/Button";
+
 import Logo from "../../assets/logo.svg";
 
 import classes from "../pages/LoginPage.module.css";
+import styles from "../UI/Button.module.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
@@ -61,10 +64,12 @@ const LoginPage = () => {
                 ""
               )}
             </div>
-            <button type="submit">Log In</button>
+            <Button type="submit" className={styles.btn}>
+              Login to your account
+            </Button>
           </form>
-          <footer>
-            <p>Don't have an account</p>
+          <footer className={classes["card-footer"]}>
+            <p className={classes.question}>Don't have an account</p>
             <Link to="/signup">Sign Up</Link>
           </footer>
         </div>
