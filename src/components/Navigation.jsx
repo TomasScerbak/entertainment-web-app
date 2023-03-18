@@ -14,7 +14,7 @@ const Navigation = () => {
   const auth = getAuth();
 
   const handleLogOut = () => {
-    auth.signOut(auth).then(() => console.log("User Logged out"));
+    auth.signOut(auth).then(() => console.log("user logged out"));
   };
 
   return (

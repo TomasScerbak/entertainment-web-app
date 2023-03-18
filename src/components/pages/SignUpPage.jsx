@@ -16,7 +16,7 @@ const SignUpPage = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("Registered user:", user);
+        window.location = "login";
         setEmail("");
         setPassword("");
       })

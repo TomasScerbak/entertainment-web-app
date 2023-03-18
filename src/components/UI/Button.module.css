@@ -9,6 +9,15 @@
   white-space: nowrap;
   padding: 1.5rem;
   border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--white);
+  color: var(--very-dark-blue);
+}
+
+.btn--primary {
   margin-top: 4rem;
   margin-bottom: 2.4rem;
 }

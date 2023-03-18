@@ -16,11 +16,15 @@ const LoginPage = () => {
 
   const auth = getAuth();
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("Signed in user:", user);
+        if (user.refreshToken) {
+          window.location = "/";
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -64,7 +68,10 @@ const LoginPage = () => {
                 ""
               )}
             </div>
-            <Button type="submit" className={styles.btn}>
+            <Button
+              type="submit"
+              className={`${styles.btn} ${styles["btn--primary"]}`}
+            >
               Login to your account
             </Button>
           </form>
