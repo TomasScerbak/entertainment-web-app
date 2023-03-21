@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { saveTrendMovies } from "../../store/trendMoviesSlice";
 
 import classes from "./SearchBar.module.css";
 
 import SearchIcon from "../../assets/icon-search.svg";
-import { useDispatch } from "react-redux";
-import { saveTrendMovies } from "../../store/trendMoviesSlice";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const SearchBar = (props) => {
           (title ?? name).match(searchInput)
         );
         if (!result) {
-          dispatch(saveTrendMovies([]));
+          return;
         } else {
           dispatch(saveTrendMovies(result));
         }

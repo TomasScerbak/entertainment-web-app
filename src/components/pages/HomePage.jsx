@@ -12,8 +12,6 @@ import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesA
 const HomePage = () => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [movies, setMovies] = useState([]);
-  console.log("this is from trending", trendMovies);
-  console.log("this is from movies", movies);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
@@ -25,7 +23,7 @@ const HomePage = () => {
   return (
     <>
       <SearchBar movies={movies} placeholder="Search for movies or TV series" />
-      {trendMovies.length ? (
+      {trendMovies.length > 0 ? (
         trendMovies[0].map((movie) => (
           <MovieCard
             key={movie.id}
