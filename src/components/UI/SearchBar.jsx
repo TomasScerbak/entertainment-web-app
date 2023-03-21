@@ -15,21 +15,22 @@ const SearchBar = (props) => {
     e.preventDefault();
 
     setSearchInput(e.target.value);
-    console.log(searchInput);
   };
 
   useEffect(() => {
-    const interval = setTimeout(() => {
-      const result = movies.filter(({ title, name }) =>
-        (title ?? name).match(searchInput)
-      );
-      if (!result) {
-        return;
-      } else {
-        dispatch(saveTrendMovies(result));
-      }
-      return () => clearTimeout(interval);
-    }, [1500]);
+    if (searchInput) {
+      const interval = setTimeout(() => {
+        const result = movies.filter(({ title, name }) =>
+          (title ?? name).match(searchInput)
+        );
+        if (!result) {
+          dispatch(saveTrendMovies([]));
+        } else {
+          dispatch(saveTrendMovies(result));
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }
   }, [searchInput, dispatch, movies]);
 
   return (

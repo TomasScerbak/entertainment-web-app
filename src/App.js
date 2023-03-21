@@ -1,5 +1,5 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { saveUser } from "./store/authSlice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -30,14 +30,16 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const user = useSelector((state) => state.auth.uid);
   const dispatch = useDispatch();
 
   const auth = getAuth(app);
+  const uid = useSelector((state) => state.auth.value);
+  console.log("user from store", uid);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(saveUser(user.refreshToken));
+        console.log(user.uid);
+        dispatch(saveUser(user.uid));
       } else {
         dispatch(saveUser(undefined));
       }

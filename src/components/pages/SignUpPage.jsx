@@ -1,5 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
+import app from "../../base";
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
@@ -8,7 +10,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ const SignUpPage = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        console.log("Created user:", user);
         window.location = "login";
         setEmail("");
         setPassword("");

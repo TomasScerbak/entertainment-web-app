@@ -1,7 +1,8 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+import app from "../../base";
 
 import Button from "../UI/Button";
 
@@ -14,7 +15,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const auth = getAuth();
+  const auth = getAuth(app);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -22,9 +23,8 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        if (user.refreshToken) {
-          window.location = "/";
-        }
+        console.log("Signed user:", user);
+        window.location = "/";
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -10,9 +10,11 @@ export const trendMoviesSlice = createSlice({
   reducers: {
     saveTrendMovies: (state, action) => {
       const movies = action.payload;
-      state.trendMovies.push({
-        movies,
-      });
+      if (state.trendMovies.length === 0) {
+        state.trendMovies.push(movies);
+      } else {
+        state.trendMovies = [];
+      }
     },
   },
 });
