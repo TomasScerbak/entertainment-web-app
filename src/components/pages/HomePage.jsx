@@ -12,7 +12,8 @@ import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesA
 const HomePage = () => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [movies, setMovies] = useState([]);
-  console.log(trendMovies);
+  console.log("this is from trending", trendMovies);
+  console.log("this is from movies", movies);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
