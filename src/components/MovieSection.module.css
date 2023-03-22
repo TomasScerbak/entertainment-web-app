@@ -1,0 +1,49 @@
+.movie-wrapper {
+  margin-top: 2.4rem;
+}
+
+.movie-container {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  margin-left: 1.6rem;
+}
+
+.movie-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2.4rem;
+  letter-spacing: -0.3125px;
+  margin-left: 1.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .movie-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .movie-wrapper {
+    margin-left: 16.4rem;
+    margin-top: 2.4rem;
+  }
+
+  .movie-heading {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movie-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .movie-wrapper {
+    max-width: 1440px;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}

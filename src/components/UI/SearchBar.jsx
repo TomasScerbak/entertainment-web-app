@@ -25,7 +25,7 @@ const SearchBar = (props) => {
           (title ?? name).match(searchInput)
         );
         if (!result) {
-          return movies;
+          return [movies];
         } else {
           dispatch(saveTrendMovies(result));
         }

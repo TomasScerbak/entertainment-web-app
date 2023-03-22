@@ -43,7 +43,7 @@ const HomePage = () => {
       </SearchedSection>
       {trendMovies.length === 0 ? (
         <>
-          <TrendingSection>
+          <TrendingSection title={"Trending"}>
             {movies.map((movie) => (
               <TrendingCard
                 key={movie.id}
@@ -56,7 +56,7 @@ const HomePage = () => {
               />
             ))}
           </TrendingSection>
-          <RecommendedSection>
+          <RecommendedSection title={"Recommended for you"}>
             {movies.map((movie) =>
               movie.vote_average > "5" ? (
                 <MovieCard
