@@ -50,6 +50,10 @@
     font-size: 2.4rem;
   }
 
+  .searched-heading {
+    font-size: 3.2rem;
+  }
+
   .search::placeholder {
     font-size: 2.4rem;
   }

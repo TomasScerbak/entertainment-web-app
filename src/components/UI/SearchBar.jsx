@@ -55,7 +55,7 @@ const SearchBar = (props) => {
       </div>
       <div>
         {searchInput ? (
-          <h1 className={classes["search-heading"]}>
+          <h1 className={classes["searched-heading"]}>
             {`Found ${trendMovies.map(
               (movie) => movie.length
             )} results for '${searchInput}'`}
