@@ -18,17 +18,19 @@ const SearchBar = (props) => {
   };
 
   useEffect(() => {
-    const interval = setTimeout(() => {
-      const result = movies.filter(({ title, name }) =>
-        (title ?? name).match(searchInput)
-      );
-      if (!result) {
-        return movies;
-      } else {
-        dispatch(saveTrendMovies(result));
-      }
-    }, 1000);
-    return () => clearInterval(interval);
+    if (searchInput) {
+      const interval = setTimeout(() => {
+        const result = movies.filter(({ title, name }) =>
+          (title ?? name).match(searchInput)
+        );
+        if (!result) {
+          return;
+        } else {
+          dispatch(saveTrendMovies(result));
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }
   }, [searchInput, dispatch, movies]);
 
   return (
