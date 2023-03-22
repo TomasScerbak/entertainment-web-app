@@ -1,8 +1,16 @@
 .search-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
   margin-left: 1.6rem;
   margin-top: 2.4rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2.4rem;
 }
 .search {
   width: 25.7rem;
@@ -21,6 +29,13 @@
 .search-icon {
   width: 2.4rem;
   height: 2.4rem;
+}
+
+.searched-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2.4rem;
+  margin-left: 1.6rem;
 }
 
 @media screen and (min-width: 769px) {
