@@ -9,7 +9,7 @@ import Avatar from "../assets/image-avatar.png";
 import Login from "../assets/login-image.png";
 
 const Navigation = () => {
-  const user = useSelector((state) => state.auth.uid);
+  const user = useSelector((state) => state.auth.value);
 
   const auth = getAuth();
 

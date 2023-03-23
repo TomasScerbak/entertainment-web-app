@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ModalCard from "../UI/ModalCard";
 
 const Bookmarks = () => {
-  const user = useSelector((state) => state.auth.uid);
+  const user = useSelector((state) => state.auth.value);
 
   return <section>{user ? <h1>bookmarks</h1> : <ModalCard />}</section>;
 };

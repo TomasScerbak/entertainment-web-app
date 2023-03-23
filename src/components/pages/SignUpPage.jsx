@@ -22,7 +22,6 @@ const SignUpPage = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log("Created user:", user);
-        window.location = "login";
         setEmail("");
         setPassword("");
       })

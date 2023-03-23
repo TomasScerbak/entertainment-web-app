@@ -31,18 +31,18 @@ const router = createBrowserRouter([
 
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth.value);
 
   const auth = getAuth(app);
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(saveUser(user.uid));
+        dispatch(saveUser(user.refreshToken));
       } else {
         dispatch(saveUser(undefined));
       }
     });
-  }, [auth, dispatch]);
+  }, [auth, dispatch, user]);
 
   return <RouterProvider router={router} />;
 }
