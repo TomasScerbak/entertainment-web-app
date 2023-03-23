@@ -2,15 +2,24 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
+import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
 import CategoryTVImg from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
+// import ModalCard from "./ModalCard";
 
 import classes from "./TrendingCard.module.css";
 
 const TrendingCard = ({ title, image, category, year, rating, type }) => {
   const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
+
+  const isBookmarkedHandler = () => {
+    if (user) {
+      setBookmarked(!bookmarked);
+    }
+  };
 
   const toggleHoverHandler = () => {
     setIsHovered(!hovered);
@@ -34,8 +43,14 @@ const TrendingCard = ({ title, image, category, year, rating, type }) => {
         className={classes["trending-image"]}
         alt="movie poster"
       />
-      <div className={classes["bookmark-icon-wrapper"]}>
-        <img src={BookmarkIconEmpty} alt="bookmark icon" />
+      <div
+        onClick={isBookmarkedHandler}
+        className={classes["bookmark-icon-wrapper"]}
+      >
+        <img
+          src={bookmarked ? BookmarkIconFull : BookmarkIconEmpty}
+          alt="bookmark icon"
+        />
       </div>
       <div className={classes["description"]}>
         <div className={classes["movie-info"]}>
