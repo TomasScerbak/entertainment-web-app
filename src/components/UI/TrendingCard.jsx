@@ -6,7 +6,6 @@ import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
 import CategoryTVImg from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
-// import ModalCard from "./ModalCard";
 
 import classes from "./TrendingCard.module.css";
 
@@ -15,15 +14,16 @@ const TrendingCard = ({ title, image, category, year, rating, type }) => {
   const [hovered, setIsHovered] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
 
+  const toggleHoverHandler = () => {
+    setIsHovered(!hovered);
+  };
+
   const isBookmarkedHandler = () => {
     if (user) {
       setBookmarked(!bookmarked);
     }
   };
 
-  const toggleHoverHandler = () => {
-    setIsHovered(!hovered);
-  };
   return (
     <div
       onMouseEnter={toggleHoverHandler}

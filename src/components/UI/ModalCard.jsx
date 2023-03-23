@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 
 import Logo from "../../assets/logo.svg";
 
@@ -29,4 +31,11 @@ const ModalCard = () => {
   );
 };
 
-export default ModalCard;
+const Modal = (props) => {
+  return ReactDOM.createPortal(
+    <ModalCard />,
+    document.querySelector("#modal-root")
+  );
+};
+
+export default Modal;
