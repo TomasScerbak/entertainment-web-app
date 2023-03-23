@@ -38,6 +38,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 10rem;
 }
 
 .avatar {
@@ -102,5 +103,10 @@
   .login {
     width: 4rem;
     height: 4rem;
+  }
+
+  .user {
+    flex-direction: column;
+    height: 5rem;
   }
 }
