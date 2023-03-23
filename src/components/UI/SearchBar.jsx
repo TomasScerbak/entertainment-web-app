@@ -25,11 +25,11 @@ const SearchBar = (props) => {
           (title ?? name).match(searchInput)
         );
         if (!result) {
-          return [movies];
+          return movies;
         } else {
           dispatch(saveTrendMovies(result));
         }
-      }, 1000);
+      }, 2000);
       return () => clearInterval(interval);
     }
   }, [searchInput, dispatch, movies]);

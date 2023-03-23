@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import MovieCard from "../UI/MovieCard";
 import MovieSection from "../MovieSection";
+import SearchBar from "../UI/SearchBar";
+import MovieCard from "../UI/MovieCard";
 
 import { FetchAllMovies } from "../../services/APIs/FetchMoviesAPI";
 
@@ -10,17 +11,16 @@ const Movies = () => {
   const allMovies = useSelector((state) => state.allMovies.allMovies);
   const [movies, setMovies] = useState([]);
 
-  console.log("all movies from slice", allMovies);
-
   useEffect(() => {
     FetchAllMovies().then((data) => {
-      const movieData = data.results;
+      const movieData = data.items;
       setMovies(movieData);
     });
   }, []);
 
   return (
     <>
+      <SearchBar />
       <MovieSection title={"Movies"}>
         {movies.map((movie) => (
           <MovieCard

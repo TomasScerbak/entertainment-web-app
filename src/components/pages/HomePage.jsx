@@ -14,7 +14,7 @@ const HomePage = () => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [movies, setMovies] = useState([]);
 
-  console.log("from slice", trendMovies, trendMovies.length);
+  console.log("trend movies from slice", trendMovies);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {

@@ -2,8 +2,6 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import app from "../../base";
-
 import Button from "../UI/Button";
 
 import Logo from "../../assets/logo.svg";
@@ -15,7 +13,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const auth = getAuth(app);
+  const auth = getAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
