@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
@@ -8,6 +9,7 @@ import PlayIcon from "../../assets/icon-play.svg";
 import classes from "./TrendingCard.module.css";
 
 const TrendingCard = ({ title, image, category, year, rating, type }) => {
+  const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
