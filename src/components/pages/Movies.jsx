@@ -8,7 +8,6 @@ import MovieCard from "../UI/MovieCard";
 import { FetchAllMovies } from "../../services/APIs/FetchMoviesAPI";
 
 const Movies = () => {
-  const allMovies = useSelector((state) => state.allMovies.allMovies);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
