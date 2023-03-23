@@ -19,7 +19,7 @@ const TvSeries = () => {
   return (
     <>
       <SearchBar />
-      <MovieSection title={"Movies"}>
+      <MovieSection title={"TV Series"}>
         {movies.map((movie) => (
           <MovieCard
             key={movie.id}

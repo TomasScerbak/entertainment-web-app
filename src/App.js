@@ -33,12 +33,10 @@ function App() {
   const dispatch = useDispatch();
 
   const auth = getAuth(app);
-  const uid = useSelector((state) => state.auth.value);
-  console.log("user from store", uid);
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user.uid);
         dispatch(saveUser(user.uid));
       } else {
         dispatch(saveUser(undefined));

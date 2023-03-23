@@ -29,7 +29,7 @@ const SearchBar = (props) => {
         } else {
           dispatch(saveTrendMovies(result));
         }
-      }, 2000);
+      }, 500);
       return () => clearInterval(interval);
     }
   }, [searchInput, dispatch, movies]);
