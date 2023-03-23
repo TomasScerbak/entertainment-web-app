@@ -22,7 +22,7 @@ const SearchBar = (props) => {
     if (searchInput) {
       const interval = setTimeout(() => {
         const result = movies.filter(({ title, name }) =>
-          (title ?? name).match(searchInput)
+          (title ?? name).toLowerCase().match(searchInput.toLowerCase())
         );
         if (!result) {
           return movies;
