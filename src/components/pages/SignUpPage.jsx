@@ -3,7 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Card from "../UI/Card";
+import FormControl from "../UI/FormControl";
 import Button from "../UI/Button";
+import Error from "../UI/Error";
 
 import classes from "./SignUpPage.module.css";
 
@@ -43,19 +45,15 @@ const SignUpPage = () => {
         text={"Login"}
       >
         <form onSubmit={handleSignUp}>
-          <div className={classes["form-control"]}>
+          <FormControl className={classes["form-control"]}>
             <input
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
               type="email"
             />
-            {email === "" ? (
-              <p className={classes.error}>Can't be empty</p>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className={classes["form-control"]}>
+            {email === "" ? <Error text={"Can't be empty"} /> : ""}
+          </FormControl>
+          <FormControl className={classes["form-control"]}>
             <input
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -66,7 +64,7 @@ const SignUpPage = () => {
             ) : (
               ""
             )}
-          </div>
+          </FormControl>
           <Button type="submit" text={"Create an account"} />
         </form>
       </Card>
