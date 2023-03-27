@@ -10,11 +10,22 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./TrendingCard.module.css";
 
-const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
+const TrendingCard = ({
+  title,
+  image,
+  category,
+  year,
+  rating,
+  type,
+  id,
+  isBooked,
+}) => {
   const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(isBooked);
   const dispatch = useDispatch();
+
+  console.log(bookmarked);
 
   const toggleHoverHandler = () => {
     setIsHovered(!hovered);
@@ -32,10 +43,10 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
           year: year,
           rating: rating,
           type: type,
+          isBooked: isBooked,
         })
       );
     } else {
-      setBookmarked(bookmarked);
       console.log("Please log in");
     }
   };

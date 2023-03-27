@@ -14,6 +14,8 @@ const HomePage = () => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [movies, setMovies] = useState([]);
 
+  console.log(trendMovies);
+
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
       const movieData = data.results;
@@ -26,7 +28,7 @@ const HomePage = () => {
       <SearchBar movies={movies} placeholder="Search for movies or TV series" />
       <SearchedSection>
         {trendMovies.length
-          ? trendMovies[0].map((movie) => (
+          ? trendMovies.map((movie) => (
               <MovieCard
                 key={movie.id}
                 id={movie.id}

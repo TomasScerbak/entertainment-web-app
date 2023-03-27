@@ -10,6 +10,8 @@ const SearchBar = (props) => {
   const dispatch = useDispatch();
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [searchInput, setSearchInput] = useState("");
+
+  // idea je tu mat 3 rozdielne props fetchnute z jednotlivych sekcii
   const movies = props.movies;
 
   const searchInputHandler = (e) => {

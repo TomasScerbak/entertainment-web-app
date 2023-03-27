@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import CategoryMovieImg from "../../assets/icon-category-movie.svg";
 import CategoryTVImg from "../../assets/icon-category-tv.svg";
@@ -7,7 +8,15 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./MovieCard.module.css";
 
-const MovieCard = ({ title, image, category, year, rating, type }) => {
+const MovieCard = ({
+  title,
+  image,
+  category,
+  year,
+  rating,
+  type,
+  isBooked,
+}) => {
   const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
@@ -34,7 +43,10 @@ const MovieCard = ({ title, image, category, year, rating, type }) => {
           alt="movie poster"
         />
         <div className={classes["bookmark-icon-wrapper"]}>
-          <img src={BookmarkIconEmpty} alt="bookmark icon" />
+          <img
+            src={isBooked ? BookmarkIconFull : BookmarkIconEmpty}
+            alt="bookmark icon"
+          />
         </div>
       </div>
       <div className={classes["description"]}>
