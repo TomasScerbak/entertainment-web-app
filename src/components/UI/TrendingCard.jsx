@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { saveBookmarkedMovie } from "../../store/bookMarkSlice";
 
 import BookmarkIconEmpty from "../../assets/icon-bookmark-empty.svg";
 import BookmarkIconFull from "../../assets/icon-bookmark-full.svg";
@@ -9,10 +10,11 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./TrendingCard.module.css";
 
-const TrendingCard = ({ title, image, category, year, rating, type }) => {
+const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
   const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleHoverHandler = () => {
     setIsHovered(!hovered);
@@ -21,6 +23,20 @@ const TrendingCard = ({ title, image, category, year, rating, type }) => {
   const isBookmarkedHandler = () => {
     if (user) {
       setBookmarked(!bookmarked);
+      dispatch(
+        saveBookmarkedMovie({
+          id: id,
+          title: title,
+          image: image,
+          category: category,
+          year: year,
+          rating: rating,
+          type: type,
+        })
+      );
+    } else {
+      setBookmarked(bookmarked);
+      console.log("Please log in");
     }
   };
 

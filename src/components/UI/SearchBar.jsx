@@ -12,8 +12,6 @@ const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
   const movies = props.movies;
 
-  console.log(trendMovies);
-
   const searchInputHandler = (e) => {
     e.preventDefault();
 

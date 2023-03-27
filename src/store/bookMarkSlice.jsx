@@ -8,13 +8,13 @@ export const bookMarkedSlice = createSlice({
   name: "userBookmars",
   initialState,
   reducers: {
-    saveBookmaredMovie: (state, action) => {
+    saveBookmarkedMovie: (state, action) => {
       const bookmarkedMovie = action.payload;
       state.bookmarked.push(bookmarkedMovie);
     },
   },
 });
 
-export const { saveBookmaredMovie } = bookMarkedSlice.actions;
+export const { saveBookmarkedMovie } = bookMarkedSlice.actions;
 
 export default bookMarkedSlice;

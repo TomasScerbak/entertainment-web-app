@@ -29,6 +29,7 @@ const HomePage = () => {
           ? trendMovies[0].map((movie) => (
               <MovieCard
                 key={movie.id}
+                id={movie.id}
                 title={movie.title || movie.name}
                 image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 category={movie.media_type}
@@ -45,6 +46,7 @@ const HomePage = () => {
             {movies.map((movie) => (
               <TrendingCard
                 key={movie.id}
+                id={movie.id}
                 title={movie.title || movie.name}
                 image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                 category={movie.media_type}
@@ -59,6 +61,7 @@ const HomePage = () => {
               movie.vote_average > "5" ? (
                 <MovieCard
                   key={movie.id}
+                  id={movie.id}
                   title={movie.title || movie.name}
                   image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   category={movie.media_type}
