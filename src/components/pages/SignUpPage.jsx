@@ -1,15 +1,11 @@
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
+import Logo from "../UI/Logo";
 import Card from "../UI/Card";
 import FormControl from "../UI/FormControl";
 import Button from "../UI/Button";
 import Error from "../UI/Error";
-
-import classes from "./SignUpPage.module.css";
-
-import Logo from "../../assets/logo.svg";
 
 const SignUpPage = () => {
   const [email, setEmail] = useState();
@@ -36,16 +32,14 @@ const SignUpPage = () => {
 
   return (
     <section>
-      <Link className={classes["card-logo"]} to="/">
-        <img src={Logo} alt="logo" />
-      </Link>
+      <Logo />
       <Card
         header={"Sign Up"}
         question={"Already have an account?"}
         text={"Login"}
       >
         <form onSubmit={handleSignUp}>
-          <FormControl className={classes["form-control"]}>
+          <FormControl>
             <input
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
@@ -53,17 +47,13 @@ const SignUpPage = () => {
             />
             {email === "" ? <Error text={"Can't be empty"} /> : ""}
           </FormControl>
-          <FormControl className={classes["form-control"]}>
+          <FormControl>
             <input
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               type="password"
             />
-            {password === "" ? (
-              <p className={classes.error}>Can't be empty</p>
-            ) : (
-              ""
-            )}
+            {password === "" ? <Error text={"Can't be empty"} /> : ""}
           </FormControl>
           <Button type="submit" text={"Create an account"} />
         </form>

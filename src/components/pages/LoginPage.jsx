@@ -1,14 +1,11 @@
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
+import Logo from "../UI/Logo";
 import Card from "../UI/Card";
+import FormControl from "../UI/FormControl";
 import Button from "../UI/Button";
 import Error from "../UI/Error";
-
-import Logo from "../../assets/logo.svg";
-
-import classes from "../pages/LoginPage.module.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
@@ -34,35 +31,29 @@ const LoginPage = () => {
 
   return (
     <section>
-      <Link className={classes.logo} to="/">
-        <img src={Logo} alt="logo" />
-      </Link>
+      <Logo />
       <Card
         header={"Login"}
         question={"Don't have an account?"}
         text={"Sign Up"}
       >
         <form onSubmit={handleLogin}>
-          <div className={classes["form-control"]}>
+          <FormControl>
             <input
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
               type="email"
             />
-            {email === "" ? (
-              <p className={classes.error}>Can't be empty</p>
-            ) : (
-              ""
-            )}
-          </div>
-          <div className={classes["form-control"]}>
+            {email === "" ? <Error text={"Can't be empty"} /> : ""}
+          </FormControl>
+          <FormControl>
             <input
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
               type="password"
             />
             {password === "" ? <Error text={"Can't be empty"} /> : ""}
-          </div>
+          </FormControl>
           <Button type="submit" text={"Login to your account"} />
         </form>
       </Card>
