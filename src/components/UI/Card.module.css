@@ -26,3 +26,16 @@
   justify-content: space-around;
   padding: 0 3rem;
 }
+
+@media screen and (min-width: 769px) {
+  .card {
+    width: 40rem;
+    height: fit-content;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+@media screen and (min-width: 1440px) {
+}
