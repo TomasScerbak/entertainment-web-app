@@ -8,7 +8,6 @@ import Button from "../UI/Button";
 import Logo from "../../assets/logo.svg";
 
 import classes from "../pages/LoginPage.module.css";
-import styles from "../UI/Button.module.css";
 
 const LoginPage = () => {
   const [email, setEmail] = useState();
@@ -63,12 +62,7 @@ const LoginPage = () => {
               ""
             )}
           </div>
-          <Button
-            type="submit"
-            className={`${styles.btn} ${styles["btn--primary"]}`}
-          >
-            Login to your account
-          </Button>
+          <Button type="submit" text={"Login to your account"} />
         </form>
       </Card>
     </section>

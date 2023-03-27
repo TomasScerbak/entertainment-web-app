@@ -1,7 +1,12 @@
+import classes from "../UI/Button.module.css";
+
 const Button = (props) => {
   return (
-    <button className={props.className} type={props.type}>
-      {props.children}
+    <button
+      className={`${classes.btn} ${classes["btn--primary"]}`}
+      type={props.type}
+    >
+      {props.text}
     </button>
   );
 };
