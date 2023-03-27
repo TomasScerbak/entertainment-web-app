@@ -12,7 +12,9 @@ const Card = (props) => {
         {props.children}
         <footer className={classes["card-footer"]}>
           <p className={classes.question}>{props.question}</p>
-          <Link to="/signup">{props.text}</Link>
+          <Link to={props.text === "Login" ? "/login" : "/signup"}>
+            {props.text}
+          </Link>
         </footer>
       </div>
     </div>

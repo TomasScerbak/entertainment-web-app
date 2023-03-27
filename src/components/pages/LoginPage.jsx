@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
+import Error from "../UI/Error";
 
 import Logo from "../../assets/logo.svg";
 
@@ -36,7 +37,11 @@ const LoginPage = () => {
       <Link className={classes.logo} to="/">
         <img src={Logo} alt="logo" />
       </Link>
-      <Card header={"Login"} question={"Don't have an account?"} text={"Login"}>
+      <Card
+        header={"Login"}
+        question={"Don't have an account?"}
+        text={"Sign Up"}
+      >
         <form onSubmit={handleLogin}>
           <div className={classes["form-control"]}>
             <input
@@ -56,11 +61,7 @@ const LoginPage = () => {
               onChange={(e) => setPassword(e.target.value)}
               type="password"
             />
-            {password === "" ? (
-              <p className={classes.error}>Can't be empty</p>
-            ) : (
-              ""
-            )}
+            {password === "" ? <Error text={"Can't be empty"} /> : ""}
           </div>
           <Button type="submit" text={"Login to your account"} />
         </form>
