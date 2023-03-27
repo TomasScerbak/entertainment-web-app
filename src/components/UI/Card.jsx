@@ -9,6 +9,7 @@ const Card = (props) => {
         <header>
           <h1>{props.header}</h1>
         </header>
+        {props.children}
         <footer className={classes["card-footer"]}>
           <p className={classes.question}>{props.question}</p>
           <Link to="/signup">{props.text}</Link>

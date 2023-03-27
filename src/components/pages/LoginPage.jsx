@@ -37,7 +37,7 @@ const LoginPage = () => {
       <Link className={classes.logo} to="/">
         <img src={Logo} alt="logo" />
       </Link>
-      <Card header={"Login"} question={"Don't have an account"} text={"Login"}>
+      <Card header={"Login"} question={"Don't have an accoun?"} text={"Login"}>
         <form onSubmit={handleLogin}>
           <div className={classes["form-control"]}>
             <input
