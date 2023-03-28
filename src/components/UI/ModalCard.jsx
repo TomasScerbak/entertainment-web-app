@@ -11,16 +11,16 @@ const ModalCard = () => {
     <div>
       <div className={classes.backdrop}>
         <div className={classes.modal}>
-          <header>
+          <header className={classes["modal-logo"]}>
             <Link to="/">
               <img src={Logo} alt="logo" />
             </Link>
             <h1 className={classes["modal-header"]}>
-              Bookmarks are available only for registered users
+              Bookmarks are only available for registered users.
             </h1>
           </header>
-          <p className={classes["modal-text"]}>please log in</p>
-          <footer>
+          <footer className={classes["modal-footer"]}>
+            <p className={classes["modal-text"]}>Please log in</p>
             <Link className={classes["modal-link"]} to="/login">
               Login
             </Link>
