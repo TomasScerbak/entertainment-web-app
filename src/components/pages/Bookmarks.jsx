@@ -17,47 +17,53 @@ const Bookmarks = () => {
 
   return (
     <>
-      <SearchBar placeholder="Search for bookmarked shows" />
-      <>
-        {bookmarkedMovie.length === 0 ? (
-          <MovieSection title={"You have no bookmarked movies"} />
-        ) : (
+      {user ? (
+        <>
+          <SearchBar placeholder="Search for bookmarked shows" />
           <>
-            <MovieSection title={"Bookmarked Movies"}>
-              {bookmarkedMovie.map((movie) =>
-                movie.category === "movie" ? (
-                  <MovieCard
-                    isBooked={!!findBookmarkedMovie(movie.id)}
-                    key={movie.id}
-                    id={movie.id}
-                    title={movie.title || movie.name}
-                    image={movie.image}
-                    category={movie.type}
-                    year={movie.year}
-                    rating={movie.rating}
-                  />
-                ) : null
-              )}
-            </MovieSection>
-            <MovieSection title={"Bookmarked TV series"}>
-              {bookmarkedMovie.map((movie) =>
-                movie.category === "tv" ? (
-                  <MovieCard
-                    isBooked={!!findBookmarkedMovie(movie.id)}
-                    key={movie.id}
-                    id={movie.id}
-                    title={movie.title || movie.name}
-                    image={movie.image}
-                    category={movie.type}
-                    year={movie.year}
-                    rating={movie.rating}
-                  />
-                ) : null
-              )}
-            </MovieSection>
+            {bookmarkedMovie.length === 0 ? (
+              <MovieSection title={"You have no bookmarked movies"} />
+            ) : (
+              <>
+                <MovieSection title={"Bookmarked Movies"}>
+                  {bookmarkedMovie.map((movie) =>
+                    movie.category === "movie" ? (
+                      <MovieCard
+                        isBooked={!!findBookmarkedMovie(movie.id)}
+                        key={movie.id}
+                        id={movie.id}
+                        title={movie.title || movie.name}
+                        image={movie.image}
+                        category={movie.type}
+                        year={movie.year}
+                        rating={movie.rating}
+                      />
+                    ) : null
+                  )}
+                </MovieSection>
+                <MovieSection title={"Bookmarked TV series"}>
+                  {bookmarkedMovie.map((movie) =>
+                    movie.category === "tv" ? (
+                      <MovieCard
+                        isBooked={!!findBookmarkedMovie(movie.id)}
+                        key={movie.id}
+                        id={movie.id}
+                        title={movie.title || movie.name}
+                        image={movie.image}
+                        category={movie.type}
+                        year={movie.year}
+                        rating={movie.rating}
+                      />
+                    ) : null
+                  )}
+                </MovieSection>
+              </>
+            )}
           </>
-        )}
-      </>
+        </>
+      ) : (
+        <Modal />
+      )}
     </>
   );
 };
