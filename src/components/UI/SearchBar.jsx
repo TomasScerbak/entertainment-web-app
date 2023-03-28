@@ -16,9 +16,6 @@ const SearchBar = (props) => {
 
   const fetchedTrendMovies = props.movies;
 
-  console.log(trendMovies);
-  console.log(searchInput.length);
-
   const searchInputHandler = (e) => {
     e.preventDefault();
 
