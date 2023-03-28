@@ -18,7 +18,7 @@ const TvSeries = () => {
 
   return (
     <>
-      <SearchBar />
+      <SearchBar placeholder={"Search for TV series"} />
       <MovieSection title={"TV Series"}>
         {movies.map((movie) => (
           <MovieCard
