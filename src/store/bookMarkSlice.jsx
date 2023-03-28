@@ -10,7 +10,6 @@ export const bookMarkedSlice = createSlice({
   reducers: {
     saveBookmarkedMovie: (state, action) => {
       const bookmarkedMovie = action.payload;
-
       state.bookmarked.push(bookmarkedMovie);
     },
   },

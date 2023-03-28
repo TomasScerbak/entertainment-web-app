@@ -13,8 +13,6 @@ const Bookmarks = () => {
     return existingMovie;
   };
 
-  console.log(bookmarkedMovie);
-
   return (
     <section>
       {user ? (

@@ -11,8 +11,10 @@ const SearchBar = (props) => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [searchInput, setSearchInput] = useState("");
 
-  // idea je tu mat 3 rozdielne props fetchnute z jednotlivych sekcii
-  const movies = props.movies;
+  const fetchedTrendMovies = props.movies;
+
+  console.log(trendMovies);
+  console.log(searchInput.length);
 
   const searchInputHandler = (e) => {
     e.preventDefault();
@@ -23,18 +25,18 @@ const SearchBar = (props) => {
   useEffect(() => {
     if (searchInput) {
       const interval = setTimeout(() => {
-        const result = movies.filter(({ title, name }) =>
+        const result = fetchedTrendMovies.filter(({ title, name }) =>
           (title ?? name).toLowerCase().match(searchInput.toLowerCase())
         );
-        if (!result) {
-          return movies;
-        } else {
+        if (result) {
           dispatch(saveTrendMovies(result));
+        } else if (searchInput.length === 0) {
+          dispatch(saveTrendMovies([]));
         }
       }, 500);
       return () => clearInterval(interval);
     }
-  }, [searchInput, dispatch, movies]);
+  }, [searchInput, dispatch, fetchedTrendMovies]);
 
   return (
     <div className={classes["search-wrapper"]}>
@@ -58,9 +60,7 @@ const SearchBar = (props) => {
       <div>
         {searchInput ? (
           <h1 className={classes["searched-heading"]}>
-            {`Found ${trendMovies.map(
-              (movie) => movie.length
-            )} results for '${searchInput}'`}
+            {`Found ${trendMovies.length} results for '${searchInput}'`}
           </h1>
         ) : null}
       </div>

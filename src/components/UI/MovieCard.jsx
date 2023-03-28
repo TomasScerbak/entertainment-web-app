@@ -22,6 +22,7 @@ const MovieCard = ({
   const toggleHoverHandler = () => {
     setIsHovered(!hovered);
   };
+
   return (
     <div className={classes["movie-card__wrapper"]}>
       <div

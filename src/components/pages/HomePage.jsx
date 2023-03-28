@@ -12,20 +12,21 @@ import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesA
 
 const HomePage = () => {
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
-  const [movies, setMovies] = useState([]);
-
-  console.log(trendMovies);
+  const [fetchedTrendMovies, setFetchedTrendMovies] = useState([]);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
       const movieData = data.results;
-      setMovies(movieData);
+      setFetchedTrendMovies(movieData);
     });
   }, []);
 
   return (
     <>
-      <SearchBar movies={movies} placeholder="Search for movies or TV series" />
+      <SearchBar
+        movies={fetchedTrendMovies}
+        placeholder="Search for movies or TV series"
+      />
       <SearchedSection>
         {trendMovies.length
           ? trendMovies.map((movie) => (
@@ -45,7 +46,7 @@ const HomePage = () => {
       {trendMovies.length === 0 ? (
         <>
           <TrendingSection title={"Trending"}>
-            {movies.map((movie) => (
+            {fetchedTrendMovies.map((movie) => (
               <TrendingCard
                 key={movie.id}
                 id={movie.id}
@@ -59,7 +60,7 @@ const HomePage = () => {
             ))}
           </TrendingSection>
           <RecommendedSection title={"Recommended for you"}>
-            {movies.map((movie) =>
+            {fetchedTrendMovies.map((movie) =>
               movie.vote_average > "5" ? (
                 <MovieCard
                   key={movie.id}

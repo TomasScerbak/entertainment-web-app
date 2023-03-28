@@ -25,8 +25,6 @@ const TrendingCard = ({
   const [bookmarked, setBookmarked] = useState(isBooked);
   const dispatch = useDispatch();
 
-  console.log(bookmarked);
-
   const toggleHoverHandler = () => {
     setIsHovered(!hovered);
   };
