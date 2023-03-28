@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveTrendMovies } from "../../store/trendMoviesSlice";
+import {
+  saveTrendMovies,
+  clearTrendMovies,
+} from "../../store/trendMoviesSlice";
 
 import classes from "./SearchBar.module.css";
 
@@ -30,11 +33,11 @@ const SearchBar = (props) => {
         );
         if (result) {
           dispatch(saveTrendMovies(result));
-        } else if (searchInput.length === 0) {
-          dispatch(saveTrendMovies([]));
         }
       }, 500);
       return () => clearInterval(interval);
+    } else {
+      dispatch(clearTrendMovies());
     }
   }, [searchInput, dispatch, fetchedTrendMovies]);
 

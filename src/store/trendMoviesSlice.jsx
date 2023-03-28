@@ -10,12 +10,15 @@ export const trendMoviesSlice = createSlice({
   reducers: {
     saveTrendMovies: (state, action) => {
       const movies = action.payload;
-
       state.trendMovies = movies;
+    },
+    clearTrendMovies: (state) => {
+      state.trendMovies = [];
     },
   },
 });
 
 export const { saveTrendMovies } = trendMoviesSlice.actions;
+export const { clearTrendMovies } = trendMoviesSlice.actions;
 
 export default trendMoviesSlice;
