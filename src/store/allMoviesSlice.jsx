@@ -10,15 +10,15 @@ export const allMoviesSlice = createSlice({
   reducers: {
     saveAllMovies: (state, action) => {
       const movies = action.payload;
-      if (state.allMovies.length === 0) {
-        state.allMovies.push(movies);
-      } else {
-        state.allMovies = [];
-      }
+      state.allMovies = movies;
+    },
+    clearAllMovies: (state) => {
+      state.allMovies = [];
     },
   },
 });
 
 export const { saveAllMovies } = allMoviesSlice.actions;
+export const { clearAllMovies } = allMoviesSlice.actions;
 
 export default allMoviesSlice;
