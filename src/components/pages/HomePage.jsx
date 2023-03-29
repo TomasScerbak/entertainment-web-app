@@ -37,6 +37,13 @@ const HomePage = () => {
         onClear={() => dispatch(clearTrendMovies())}
         placeholder="Search for movies or TV series"
       />
+      {/* <>
+        {trendMovies ? (
+          <h1 className={classes["searched-heading"]}>
+            {`Found ${trendMovies.length} results for '${searchInput}'`}
+          </h1>
+        ) : null}
+      </> */}
       <SearchedSection>
         {trendMovies.length
           ? trendMovies.map((movie) => (

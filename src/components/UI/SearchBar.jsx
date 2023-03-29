@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import classes from "./SearchBar.module.css";
 
@@ -7,23 +7,26 @@ import SearchIcon from "../../assets/icon-search.svg";
 const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
 
-  console.log(searchInput);
-
   const searchInputHandler = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
+  };
 
+  useEffect(() => {
     if (searchInput) {
-      const result = props.data.filter(({ title, name }) =>
-        (title ?? name).toLowerCase().match(searchInput.toLowerCase())
-      );
-      if (result) {
-        props.onSave(result);
-      }
+      const interval = setTimeout(() => {
+        const result = props.data.filter(({ title, name }) =>
+          (title ?? name).toLowerCase().match(searchInput.toLowerCase())
+        );
+        if (result) {
+          props.onSave(result);
+        }
+      }, 500);
+      return () => clearTimeout(interval);
     } else {
       props.onClear();
     }
-  };
+  }, [searchInput]);
 
   return (
     <div className={classes["search-wrapper"]}>
@@ -43,13 +46,6 @@ const SearchBar = (props) => {
           type="text"
           placeholder={props.placeholder}
         />
-      </div>
-      <div>
-        {/* {searchInput ? (
-          <h1 className={classes["searched-heading"]}>
-            {`Found ${props.data.length} results for '${searchInput}'`}
-          </h1>
-        ) : null} */}
       </div>
     </div>
   );
