@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import TrendingSection from "../TrendingSection";
 import TrendingCard from "../UI/TrendingCard";
@@ -10,9 +10,17 @@ import MovieCard from "../UI/MovieCard";
 
 import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
 
+import {
+  clearTrendMovies,
+  saveTrendMovies,
+} from "../../store/trendMoviesSlice";
+
 const HomePage = () => {
+  const dispatch = useDispatch();
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [fetchedTrendMovies, setFetchedTrendMovies] = useState([]);
+
+  console.log(trendMovies);
 
   useEffect(() => {
     FetchTrendingMoviesAPI().then((data) => {
@@ -24,7 +32,9 @@ const HomePage = () => {
   return (
     <>
       <SearchBar
-        movies={fetchedTrendMovies}
+        data={fetchedTrendMovies}
+        onSave={(result) => dispatch(saveTrendMovies(result))}
+        onClear={() => dispatch(clearTrendMovies())}
         placeholder="Search for movies or TV series"
       />
       <SearchedSection>

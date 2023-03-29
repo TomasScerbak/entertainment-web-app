@@ -1,42 +1,29 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  saveTrendMovies,
-  clearTrendMovies,
-} from "../../store/trendMoviesSlice";
+import { useState } from "react";
 
 import classes from "./SearchBar.module.css";
 
 import SearchIcon from "../../assets/icon-search.svg";
 
 const SearchBar = (props) => {
-  const dispatch = useDispatch();
-  const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [searchInput, setSearchInput] = useState("");
 
-  const fetchedTrendMovies = props.movies;
+  console.log(searchInput);
 
   const searchInputHandler = (e) => {
     e.preventDefault();
-
     setSearchInput(e.target.value);
-  };
 
-  useEffect(() => {
     if (searchInput) {
-      const interval = setTimeout(() => {
-        const result = fetchedTrendMovies.filter(({ title, name }) =>
-          (title ?? name).toLowerCase().match(searchInput.toLowerCase())
-        );
-        if (result) {
-          dispatch(saveTrendMovies(result));
-        }
-      }, 500);
-      return () => clearInterval(interval);
+      const result = props.data.filter(({ title, name }) =>
+        (title ?? name).toLowerCase().match(searchInput.toLowerCase())
+      );
+      if (result) {
+        props.onSave(result);
+      }
     } else {
-      dispatch(clearTrendMovies());
+      props.onClear();
     }
-  }, [searchInput, dispatch, fetchedTrendMovies]);
+  };
 
   return (
     <div className={classes["search-wrapper"]}>
@@ -58,11 +45,11 @@ const SearchBar = (props) => {
         />
       </div>
       <div>
-        {searchInput ? (
+        {/* {searchInput ? (
           <h1 className={classes["searched-heading"]}>
-            {`Found ${trendMovies.length} results for '${searchInput}'`}
+            {`Found ${props.data.length} results for '${searchInput}'`}
           </h1>
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   );
