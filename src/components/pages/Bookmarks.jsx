@@ -1,35 +1,38 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import SearchBar from "../UI/SearchBar";
+// import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
 import Modal from "../UI/ModalCard";
 import MovieSection from "../MovieSection";
 
 const Bookmarks = () => {
   const user = useSelector((state) => state.auth.value);
-  const bookmarkedMovie = useSelector((state) => state.bookmarked.bookmarked);
+  const bookmarkedMovies = useSelector(
+    (state) => state.bookmarkedMovies.bookmarkedMovies
+  );
 
-  const findBookmarkedMovie = (id) => {
-    const existingMovie = bookmarkedMovie.find((movie) => movie.id === id);
-    return existingMovie;
-  };
+  console.log(bookmarkedMovies);
 
   return (
     <>
       {user ? (
         <>
-          <SearchBar placeholder="Search for bookmarked shows" />
+          {/* <SearchBar
+            data={bookmarkedMovies}
+            onSave={(result) => dispatch(saveTrendMovies(result))}
+            onClear={() => dispatch(clearTrendMovies())}
+            placeholder="Search for bookmarked shows"
+          /> */}
           <>
-            {bookmarkedMovie.length === 0 ? (
+            {bookmarkedMovies.length === 0 ? (
               <MovieSection title={"You have no bookmarked movies"} />
             ) : (
               <>
                 <MovieSection title={"Bookmarked Movies"}>
-                  {bookmarkedMovie.map((movie) =>
+                  {bookmarkedMovies.map((movie) =>
                     movie.category === "movie" ? (
                       <MovieCard
-                        isBooked={!!findBookmarkedMovie(movie.id)}
                         key={movie.id}
                         id={movie.id}
                         title={movie.title || movie.name}
@@ -42,10 +45,9 @@ const Bookmarks = () => {
                   )}
                 </MovieSection>
                 <MovieSection title={"Bookmarked TV series"}>
-                  {bookmarkedMovie.map((movie) =>
+                  {bookmarkedMovies.map((movie) =>
                     movie.category === "tv" ? (
                       <MovieCard
-                        isBooked={!!findBookmarkedMovie(movie.id)}
                         key={movie.id}
                         id={movie.id}
                         title={movie.title || movie.name}
