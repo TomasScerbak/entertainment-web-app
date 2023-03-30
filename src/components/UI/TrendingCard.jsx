@@ -102,7 +102,7 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
           <h2 className={classes["movie-title"]}>{title}</h2>
         </div>
       </div>
-      <>{bookmarAllowance ? <ModalCard /> : null}</>
+      <>{bookmarkAllowance ? <ModalCard /> : null}</>
     </>
   );
 };
