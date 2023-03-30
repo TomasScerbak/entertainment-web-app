@@ -28,9 +28,9 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
 
   const bookmarkAllowanceHandler = () => {
     if (!user) {
-      setBookmarkAllowance(!bookmarAllowance);
+      setBookmarkAllowance(!bookmarkAllowance);
     } else {
-      setBookmarkAllowance(bookmarAllowance);
+      setBookmarkAllowance(bookmarkAllowance);
     }
   };
 
