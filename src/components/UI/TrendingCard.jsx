@@ -18,7 +18,7 @@ import classes from "./TrendingCard.module.css";
 const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
   const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
-  const [bookmarAllowance, setBookmarAllowance] = useState(false);
+  const [bookmarkAllowance, setBookmarkAllowance] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const dispatch = useDispatch();
 
@@ -26,11 +26,11 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
     setIsHovered(!hovered);
   };
 
-  const bookmarAllowanceHandler = () => {
+  const bookmarkAllowanceHandler = () => {
     if (!user) {
-      setBookmarAllowance(!bookmarAllowance);
+      setBookmarkAllowance(!bookmarAllowance);
     } else {
-      setBookmarAllowance(bookmarAllowance);
+      setBookmarkAllowance(bookmarAllowance);
     }
   };
 
@@ -79,7 +79,7 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
           className={classes["bookmark-icon-wrapper"]}
         >
           <img
-            onClick={bookmarAllowanceHandler}
+            onClick={bookmarkAllowanceHandler}
             src={bookmarked ? BookmarkIconFull : BookmarkIconEmpty}
             alt="bookmark icon"
           />
