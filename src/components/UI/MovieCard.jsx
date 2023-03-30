@@ -8,15 +8,7 @@ import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./MovieCard.module.css";
 
-const MovieCard = ({
-  title,
-  image,
-  category,
-  year,
-  rating,
-  type,
-  isBooked,
-}) => {
+const MovieCard = ({ title, image, category, year, rating, type }) => {
   const [hovered, setIsHovered] = useState(false);
 
   const toggleHoverHandler = () => {
@@ -44,10 +36,7 @@ const MovieCard = ({
           alt="movie poster"
         />
         <div className={classes["bookmark-icon-wrapper"]}>
-          <img
-            src={isBooked ? BookmarkIconFull : BookmarkIconEmpty}
-            alt="bookmark icon"
-          />
+          <img src={BookmarkIconEmpty} alt="bookmark icon" />
         </div>
       </div>
       <div className={classes["description"]}>
