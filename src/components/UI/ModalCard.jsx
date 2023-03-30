@@ -11,6 +11,7 @@ const ModalCard = () => {
 
   const closeModalHandler = () => {
     setCloseModal(!closeModal);
+    window.location.pathname = "/";
   };
 
   return (
