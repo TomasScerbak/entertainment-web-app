@@ -7,6 +7,7 @@ import RecommendedSection from "../RecommendedSection";
 import SearchedSection from "../SearchedSection";
 import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
+import Result from "../UI/Result";
 
 import { FetchTrendingMoviesAPI } from "../../services/APIs/FetchTrendingMoviesAPI";
 
@@ -17,6 +18,9 @@ import {
 
 const HomePage = () => {
   const dispatch = useDispatch();
+  const searchValue = useSelector(
+    (state) => state.searchInputValue.searchValue
+  );
   const trendMovies = useSelector((state) => state.trendMovies.trendMovies);
   const [fetchedTrendMovies, setFetchedTrendMovies] = useState([]);
 
@@ -35,6 +39,11 @@ const HomePage = () => {
         onClear={() => dispatch(clearTrendMovies())}
         placeholder="Search for movies or TV series"
       />
+      {searchValue ? (
+        <Result
+          text={`Found ${trendMovies.length} results for "${searchValue}"`}
+        />
+      ) : null}
       <SearchedSection>
         {trendMovies.length
           ? trendMovies.map((movie) => (

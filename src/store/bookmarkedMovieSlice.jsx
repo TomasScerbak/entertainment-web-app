@@ -23,8 +23,6 @@ export const bookmarkedMovieSlice = createSlice({
           rating: bookmarkedMovie.rating,
           type: bookmarkedMovie.type,
         });
-      } else {
-        return;
       }
     },
 
@@ -34,7 +32,7 @@ export const bookmarkedMovieSlice = createSlice({
         (movie) => movie.id === id
       );
       if (existingMovie) {
-        state.bookmarkedMovies.filter((movie) => movie.id !== id);
+        state.bookmarkedMovies.filter((movie) => movie.id !== existingMovie);
       }
     },
 

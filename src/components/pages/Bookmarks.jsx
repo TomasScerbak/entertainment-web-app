@@ -1,16 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-// import SearchBar from "../UI/SearchBar";
+import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
 import Modal from "../UI/ModalCard";
 import MovieSection from "../MovieSection";
+import {
+  clearBookmarkedMovies,
+  saveBookmarkedMovie,
+} from "../../store/bookmarkedMovieSlice";
 
 const Bookmarks = () => {
   const user = useSelector((state) => state.auth.value);
   const bookmarkedMovies = useSelector(
     (state) => state.bookmarkedMovies.bookmarkedMovies
   );
+  const dispatch = useDispatch();
 
   console.log(bookmarkedMovies);
 
@@ -20,8 +25,8 @@ const Bookmarks = () => {
         <>
           {/* <SearchBar
             data={bookmarkedMovies}
-            onSave={(result) => dispatch(saveTrendMovies(result))}
-            onClear={() => dispatch(clearTrendMovies())}
+            onSave={(result) => dispatch(saveBookmarkedMovie(result))}
+            onClear={() => dispatch(clearBookmarkedMovies())}
             placeholder="Search for bookmarked shows"
           /> */}
           <>

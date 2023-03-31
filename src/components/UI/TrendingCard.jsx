@@ -19,7 +19,7 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
   const user = useSelector((state) => state.auth.value);
   const [hovered, setIsHovered] = useState(false);
   const [bookmarkAllowance, setBookmarkAllowance] = useState(false);
-  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(true);
   const dispatch = useDispatch();
 
   const toggleHoverHandler = () => {
@@ -36,21 +36,22 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
 
   const isBookmarkedHandler = () => {
     if (user) {
-      setBookmarked(true);
-      dispatch(
-        saveBookmarkedMovie({
-          id: id,
-          title: title,
-          image: image,
-          category: category,
-          year: year,
-          rating: rating,
-          type: type,
-        })
-      );
-    } else {
-      dispatch(removeBookmarkedMovie(id));
-      setBookmarked(false);
+      setBookmarked(!bookmarked);
+      if (bookmarked === true) {
+        dispatch(
+          saveBookmarkedMovie({
+            id: id,
+            title: title,
+            image: image,
+            category: category,
+            year: year,
+            rating: rating,
+            type: type,
+          })
+        );
+      } else {
+        dispatch(removeBookmarkedMovie(id));
+      }
     }
   };
 
@@ -80,7 +81,7 @@ const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
         >
           <img
             onClick={bookmarkAllowanceHandler}
-            src={bookmarked ? BookmarkIconFull : BookmarkIconEmpty}
+            src={!bookmarked ? BookmarkIconFull : BookmarkIconEmpty}
             alt="bookmark icon"
           />
         </div>

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 
+import { clearInputValue, saveInputValue } from "../../store/searchInputSlice";
+import { useDispatch } from "react-redux";
+
 import classes from "./SearchBar.module.css";
 
 import SearchIcon from "../../assets/icon-search.svg";
 
 const SearchBar = (props) => {
+  const dispatch = useDispatch();
   const [searchInput, setSearchInput] = useState("");
 
   const searchInputHandler = (e) => {
@@ -14,6 +18,7 @@ const SearchBar = (props) => {
 
   useEffect(() => {
     if (searchInput) {
+      dispatch(saveInputValue(searchInput));
       const interval = setTimeout(() => {
         const result = props.data.filter(({ title, name }) =>
           (title ?? name).toLowerCase().match(searchInput.toLowerCase())
@@ -24,6 +29,7 @@ const SearchBar = (props) => {
       }, 500);
       return () => clearTimeout(interval);
     } else {
+      dispatch(clearInputValue());
       props.onClear();
     }
   }, [searchInput]);
