@@ -5,6 +5,7 @@ import SearchedSection from "../SearchedSection";
 import MovieSection from "../MovieSection";
 import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
+import Result from "../UI/Result";
 
 import { FetchTVShowsAPI } from "../../services/APIs/FetchTVShowsAPI";
 import { clearTVShows, saveTVShows } from "../../store/tvShowsSlice";
@@ -12,6 +13,9 @@ import { clearTVShows, saveTVShows } from "../../store/tvShowsSlice";
 const TvSeries = () => {
   const dispatch = useDispatch();
   const tvShows = useSelector((state) => state.tvShows.tvShows);
+  const searchValue = useSelector(
+    (state) => state.searchInputValue.searchValue
+  );
   const [fetchedTVShows, setFetchedTVShows] = useState([]);
 
   useEffect(() => {
@@ -29,6 +33,9 @@ const TvSeries = () => {
         onClear={() => dispatch(clearTVShows())}
         placeholder={"Search for TV series"}
       />
+      {searchValue ? (
+        <Result text={`Found ${tvShows.length} results for "${searchValue}"`} />
+      ) : null}
       <SearchedSection>
         {tvShows.length
           ? tvShows.map((movie) => (

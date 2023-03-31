@@ -5,12 +5,16 @@ import SearchedSection from "../SearchedSection";
 import MovieSection from "../MovieSection";
 import SearchBar from "../UI/SearchBar";
 import MovieCard from "../UI/MovieCard";
+import Result from "../UI/Result";
 
 import { FetchAllMovies } from "../../services/APIs/FetchMoviesAPI";
 import { saveAllMovies, clearAllMovies } from "../../store/allMoviesSlice";
 
 const Movies = () => {
   const dispatch = useDispatch();
+  const searchValue = useSelector(
+    (state) => state.searchInputValue.searchValue
+  );
   const allMovies = useSelector((state) => state.allMovies.allMovies);
   const [fetchedAllMovies, setFetchedAllMovies] = useState([]);
 
@@ -29,6 +33,11 @@ const Movies = () => {
         onClear={() => dispatch(clearAllMovies())}
         placeholder={"Search for movies"}
       />
+      {searchValue ? (
+        <Result
+          text={`Found ${allMovies.length} results for "${searchValue}"`}
+        />
+      ) : null}
       <SearchedSection>
         {allMovies.length
           ? allMovies.map((movie) => (
