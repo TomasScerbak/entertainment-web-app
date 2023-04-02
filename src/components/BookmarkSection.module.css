@@ -1,0 +1,50 @@
+.bookmark-wrapper {
+  margin-top: 2.4rem;
+}
+
+.bookmark-container {
+  display: grid;
+  gap: 1.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  margin-left: 1.6rem;
+}
+
+.bookmark-heading {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 2.4rem;
+  letter-spacing: -0.3125px;
+  margin-left: 1.6rem;
+}
+
+@media screen and (min-width: 769px) {
+  .bookmark-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bookmark-wrapper {
+    margin-left: 16.4rem;
+    margin-top: 2.4rem;
+    padding-top: 4rem;
+  }
+
+  .bookmark-heading {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bookmark-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .bookmark-wrapper {
+    max-width: 1440px;
+  }
+
+  .bookmark-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

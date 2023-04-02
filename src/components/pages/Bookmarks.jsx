@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import MovieCard from "../UI/MovieCard";
 import Modal from "../UI/ModalCard";
-import MovieSection from "../MovieSection";
+import BookmarkSection from "../BookmarkSection";
 import BookmarkResult from "../UI/BookmarkResult";
 
 const Bookmarks = () => {
@@ -20,7 +20,7 @@ const Bookmarks = () => {
             <BookmarkResult title={"'You have no bookmarked movies'"} />
           ) : (
             <>
-              <MovieSection title={"Bookmarked Movies"}>
+              <BookmarkSection title={"Bookmarked Movies"}>
                 {bookmarkedMovies.map((movie) =>
                   movie.category === "movie" ? (
                     <MovieCard
@@ -34,8 +34,8 @@ const Bookmarks = () => {
                     />
                   ) : null
                 )}
-              </MovieSection>
-              <MovieSection title={"Bookmarked TV series"}>
+              </BookmarkSection>
+              <BookmarkSection title={"Bookmarked TV series"}>
                 {bookmarkedMovies.map((movie) =>
                   movie.category === "tv" ? (
                     <MovieCard
@@ -49,7 +49,7 @@ const Bookmarks = () => {
                     />
                   ) : null
                 )}
-              </MovieSection>
+              </BookmarkSection>
             </>
           )}
         </>
