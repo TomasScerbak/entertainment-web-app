@@ -57,8 +57,10 @@ const LoginPage = () => {
           </FormControl>
           <Button type="submit" text={"Login to your account"} />
         </form>
-        {errorMessage ? <Error text={`${errorMessage}`} /> : null}
       </Card>
+      {errorMessage ? (
+        <Error text={`${errorMessage.slice(21, errorMessage.length - 1)}`} />
+      ) : null}
     </section>
   );
 };
