@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import MovieCard from "../UI/MovieCard";
 import Modal from "../UI/ModalCard";
 import MovieSection from "../MovieSection";
+import BookmarkResult from "../UI/BookmarkResult";
 
 const Bookmarks = () => {
   const user = useSelector((state) => state.auth.value);
@@ -16,7 +17,7 @@ const Bookmarks = () => {
       {user ? (
         <>
           {bookmarkedMovies.length === 0 ? (
-            <MovieSection title={"You have no bookmarked movies"} />
+            <BookmarkResult title={"'You have no bookmarked movies'"} />
           ) : (
             <>
               <MovieSection title={"Bookmarked Movies"}>
