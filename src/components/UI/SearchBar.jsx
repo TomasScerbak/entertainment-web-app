@@ -12,7 +12,6 @@ const SearchBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
 
   const searchInputHandler = (e) => {
-    e.preventDefault();
     setSearchInput(e.target.value);
   };
 
@@ -29,8 +28,8 @@ const SearchBar = (props) => {
       }, 500);
       return () => clearTimeout(interval);
     } else {
-      dispatch(clearInputValue());
       props.onClear();
+      dispatch(clearInputValue());
     }
   }, [searchInput]);
 

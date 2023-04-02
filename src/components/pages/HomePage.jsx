@@ -44,22 +44,24 @@ const HomePage = () => {
           text={`Found ${trendMovies.length} results for "${searchValue}"`}
         />
       ) : null}
-      <SearchedSection>
-        {trendMovies.length
-          ? trendMovies.map((movie) => (
-              <MovieCard
-                key={movie.id}
-                id={movie.id}
-                title={movie.title || movie.name}
-                image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                category={movie.media_type}
-                year={parseInt(movie?.release_date) || ""}
-                rating={movie.vote_average.toFixed(1)}
-                type={movie.media_type}
-              />
-            ))
-          : null}
-      </SearchedSection>
+      {trendMovies.length ? (
+        <SearchedSection>
+          {trendMovies.length
+            ? trendMovies.map((movie) => (
+                <MovieCard
+                  key={movie.id}
+                  id={movie.id}
+                  title={movie.title || movie.name}
+                  image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                  category={movie.media_type}
+                  year={parseInt(movie?.release_date) || ""}
+                  rating={movie.vote_average.toFixed(1)}
+                  type={movie.media_type}
+                />
+              ))
+            : null}
+        </SearchedSection>
+      ) : null}
       {trendMovies.length === 0 ? (
         <>
           <TrendingSection title={"Trending"}>
