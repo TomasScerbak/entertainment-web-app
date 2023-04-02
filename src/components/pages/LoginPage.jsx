@@ -20,7 +20,9 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        window.location = "/";
+        if (user) {
+          window.location = "/";
+        }
       })
       .catch((error) => {
         const errorMessage = error.message;
