@@ -47,7 +47,11 @@ const LoginPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
             />
-            {email === "" ? <Error text={"Can't be empty"} /> : ""}
+            {email === "" && !errorMessage ? (
+              <Error text={"Can't be empty"} />
+            ) : (
+              ""
+            )}
             {errorMessage ? (
               <Error
                 text={`${errorMessage.slice(22, errorMessage.length - 2)}`}

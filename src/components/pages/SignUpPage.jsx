@@ -10,6 +10,7 @@ import Error from "../UI/Error";
 const SignUpPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [errorMessage, setErrorMessage] = useState();
 
   const auth = getAuth();
 
@@ -24,9 +25,8 @@ const SignUpPage = () => {
         setPassword("");
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("Error:", errorCode, errorMessage);
+        setErrorMessage(errorMessage);
       });
   };
 
@@ -45,7 +45,16 @@ const SignUpPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               type="email"
             />
-            {email === "" ? <Error text={"Can't be empty"} /> : ""}
+            {email === "" && !errorMessage ? (
+              <Error text={"Can't be empty"} />
+            ) : (
+              ""
+            )}
+            {errorMessage ? (
+              <Error
+                text={`${errorMessage.slice(22, errorMessage.length - 2)}`}
+              />
+            ) : null}
           </FormControl>
           <FormControl>
             <input
