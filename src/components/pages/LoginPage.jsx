@@ -10,6 +10,7 @@ import Error from "../UI/Error";
 const LoginPage = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [errorMessage, setErrorMessage] = useState();
 
   const auth = getAuth();
 
@@ -19,13 +20,11 @@ const LoginPage = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("Signed user:", user);
         window.location = "/";
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("An error occured:", errorCode, errorMessage);
+        setErrorMessage(errorMessage);
       });
   };
 
@@ -54,6 +53,7 @@ const LoginPage = () => {
             />
             {password === "" ? <Error text={"Can't be empty"} /> : ""}
           </FormControl>
+          {errorMessage ? <Error text={`${errorMessage}`} /> : null}
           <Button type="submit" text={"Login to your account"} />
         </form>
       </Card>
