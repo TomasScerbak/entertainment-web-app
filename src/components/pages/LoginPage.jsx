@@ -48,7 +48,11 @@ const LoginPage = () => {
               type="email"
             />
             {email === "" ? <Error text={"Can't be empty"} /> : ""}
-            <Error text={`${errorMessage.slice(22, errorMessage.length - 2)}`} />
+            {errorMessage ? (
+              <Error
+                text={`${errorMessage.slice(21, errorMessage.length - 1)}`}
+              />
+            ) : null}
           </FormControl>
           <FormControl>
             <input
@@ -61,8 +65,6 @@ const LoginPage = () => {
           <Button type="submit" text={"Login to your account"} />
         </form>
       </Card>
-      {errorMessage ? (
-      ) : null}
     </section>
   );
 };
