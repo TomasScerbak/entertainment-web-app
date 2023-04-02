@@ -53,8 +53,8 @@ const LoginPage = () => {
             />
             {password === "" ? <Error text={"Can't be empty"} /> : ""}
           </FormControl>
-          {errorMessage ? <Error text={`${errorMessage}`} /> : null}
           <Button type="submit" text={"Login to your account"} />
+          {errorMessage ? <Error text={`${errorMessage}`} /> : null}
         </form>
       </Card>
     </section>
