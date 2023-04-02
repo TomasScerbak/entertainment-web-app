@@ -1,17 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
 
 import Logo from "../../assets/logo.svg";
 
 import classes from "./ModalCard.module.css";
 
 const ModalCard = () => {
+  const { pathname } = useLocation();
+  const user = useSelector((state) => state.auth.value);
   const [closeModal, setCloseModal] = useState(false);
 
   const closeModalHandler = () => {
     setCloseModal(!closeModal);
-    window.location.pathname = "/";
+    if (user) {
+      pathname = "/";
+    }
   };
 
   return (

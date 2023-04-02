@@ -22,6 +22,8 @@ const LoginPage = () => {
         const user = userCredential.user;
         if (user) {
           window.location = "/";
+        } else {
+          return;
         }
       })
       .catch((error) => {
