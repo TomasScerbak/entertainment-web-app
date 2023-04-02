@@ -27,7 +27,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/TomasScerbak/entertainment-web-app.git]
-- Live Site URL: [https://github.com/TomasScerbak/entertainment-web-app.git]
+- Live Site URL: [https://magnificent-chebakia-9d554f.netlify.app]
 
 ## My process
 
