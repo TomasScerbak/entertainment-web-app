@@ -50,7 +50,7 @@ const LoginPage = () => {
             {email === "" ? <Error text={"Can't be empty"} /> : ""}
             {errorMessage ? (
               <Error
-                text={`${errorMessage.slice(21, errorMessage.length - 1)}`}
+                text={`${errorMessage.slice(22, errorMessage.length - 2)}`}
               />
             ) : null}
           </FormControl>
