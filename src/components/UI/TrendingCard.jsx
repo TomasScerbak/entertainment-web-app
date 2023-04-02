@@ -14,6 +14,7 @@ import CategoryTVImg from "../../assets/icon-category-tv.svg";
 import PlayIcon from "../../assets/icon-play.svg";
 
 import classes from "./TrendingCard.module.css";
+import { useEffect } from "react";
 
 const TrendingCard = ({ title, image, category, year, rating, type, id }) => {
   const user = useSelector((state) => state.auth.value);
