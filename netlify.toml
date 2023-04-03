@@ -1,24 +1,4 @@
 [[redirects]]
-  from = "/login"
-  to = "https://magnificent-chebakia-9d554f.netlify.app/login"
-  status = 200
-
-[[redirects]]
-  from = "/signup"
-  to = "https://magnificent-chebakia-9d554f.netlify.app/signup"
-  status = 200
-
-  [[redirects]]
-  from = "/movies"
-  to = "https://magnificent-chebakia-9d554f.netlify.app/movies"
-  status = 200
-
-    [[redirects]]
-  from = "/tvseries"
-  to = "https://magnificent-chebakia-9d554f.netlify.app/tvseries"
-  status = 200
-
-    [[redirects]]
-  from = "/bookmarks"
-  to = "https://magnificent-chebakia-9d554f.netlify.app/bookmarks"
+  from = "/*"
+  to = "/index.html"
   status = 200
