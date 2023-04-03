@@ -26,6 +26,7 @@ const SignUpPage = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
+        console.log(errorMessage);
         setErrorMessage(errorMessage);
       });
   };

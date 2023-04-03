@@ -15,6 +15,11 @@ This is a solution to the [Entertainment web app challenge on Frontend Mentor](h
 
 ### The challenge
 
+IMPORTANT - TO TEST THE APP WITHOUT CREATING ACCOUNT YOU CAN LOG IN WITH
+
+username: zidania@test.sk
+password: zidania
+
 Users should be able to:
 
 - View the optimal layout for the app depending on their device's screen size
