@@ -31,7 +31,7 @@ const SearchBar = (props) => {
       props.onClear();
       dispatch(clearInputValue());
     }
-  }, [searchInput]);
+  }, [searchInput, dispatch]);
 
   return (
     <div className={classes["search-wrapper"]}>
