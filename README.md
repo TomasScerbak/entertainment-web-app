@@ -40,6 +40,7 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - Redux Toolkit
+- Firebase auth
 
 ## Author
 
