@@ -26,8 +26,8 @@
 
 @media screen and (min-width: 1024px) {
   .trending-container {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow-x: hidden;
+    scroll-snap-type: none;
   }
 
   .trending-wrapper {
